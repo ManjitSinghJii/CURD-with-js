@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    
+</head>
+<body>
+    <div id="container">
+        <h1 id="title">Marksheet Creator</h1>
+        <div id="form-card" class="animate__animated animate__fadeIn">
+
+            <form action="" id="marksheet-form">
+                <div id="horizontal">
+                    <div id="form-group">
+                        <label for="">School Logo</label>
+                        <input type="file" accept="image/*" name="schoolLogo" id="school-logo-input">
+                    </div>
+
+                    <div id="form-group">
+                        <label for="">School Name</label>
+                        <input type="text" name="schoolName" placeholder="School Name" id="school-name-input">
+                    </div>
+    
+                    <div id="form-group">
+                        <label for="">Tag Line</label>
+                        <input type="text" name="tagline" placeholder="A streative school" id="tagline">
+                    </div>
+                </div>
+
+                <div id="horizontal">
+                    <div id="form-group">
+                        <label for="">Candiate's Image</label>
+                        <input type="file" accept="image/*" name="candiateImage" id="student-pic-input">
+                    </div>
+
+                    <div id="form-group">
+                        <label for="">Candiate's Name</label>
+                        <input type="text" name="candiateName" placeholder="Name" id="candiate-name-input">
+                    </div>
+    
+                    <div id="form-group">
+                        <label for="">Father's Name</label>
+                        <input type="text" name="fatherName" placeholder="Mr/Mrs" id="fathers-name-input">
+                    </div>
+                </div>
+
+                <div id="horizontal">
+                    <div id="form-group">
+                        <label for="">DOB</label>
+                        <input type="date" name="dob" id="dob-input">
+                    </div>
+
+                    <div id="form-group">
+                        <label for="">Gender</label>
+                        <select name="gender" id="choose-gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+    
+                    <div id="form-group">
+                        <label for="">Class</label>
+                        <input type="number" name="class" placeholder="IV" id="class-input">
+                    </div>
+
+                    <div id="form-group">
+                        <label for="">Roll Number</label>
+                        <input type="number" name="roll" placeholder="Roll" id="roll-input">
+                    </div>
+                </div>
+
+                <button id="add-subjects" type="button">
+                    <i class="fa fa-plus"></i>
+                    Add Subjects
+                </button>
+
+                <div id="dynamic-area">
+
+                </div>
+                <!-- <div id="horizontal">
+     .......................this tag is manual but we are using by java script foy dynamic...................
+                    <input type="text" name="subject" id="" placeholder="Subect Name"/>
+                    <input type="number" name="fullmarks" id="" placeholder="Full Marks"/>
+                    <input type="number" name="" id="obtainmarks" placeholder="Obtain Marks"/>
+                </div>
+
+                <div id="horizontal">
+                    <input type="text" name="subject" id="" placeholder="Subect Name"/>
+                    <input type="number" name="fullmarks" id="" placeholder="Full Marks"/>
+                    <input type="number" name="" id="obtainmarks" placeholder="Obtain Marks"/>
+                </div> -->
+                
+                <button id="generate">
+                    <i class="fa fa-download"></i>
+                    Generate Your Marksheet Now
+                </button>
+            </form>
+        </div>
+
+
+        <div id="preview" class="animate__animated animate__fadeIn">
+
+            <table width="100%">
+                <tr>
+                    <th width="150">
+                        <img src="images/jis_logo.png" width="100%" alt="jis_logo" id="school-logo">
+                    </th>
+
+                    <td align="center">
+                        <h1 id="school-name">Jis Collge Of Engineering Kalyani</h1>
+                        <span id="tagline-text">JIS College of Engineering is a college located in Kalyani, West Bengal, India. </span>
+                    </td>
+                </tr>
+            </table>
+
+            <table width="100%">
+                <tr>
+                    <th width="150">
+                        <img src="images/student.jpg" width="100%" alt="Student Photo" id="student-pic">
+                    </th>
+
+                    <td>
+                        <table border="1" width="100%">
+                            <tr>
+                                <th width="200">Student's Name</th>
+                                <td id="candiate-name">Manjit Singh</td>
+                                <th width="200">Farher's Name</th>
+                                <td id="fathers-name">Mr Sudhir Kumar Singh</td>
+                            </tr>
+
+                            <tr>
+                                <th width="200">DOB</th>
+                                <td id="dob">10-05-2002</td>
+                                <th width="200">Gender</th>
+                                <td id="gender">Male</td>
+                            </tr>
+
+                            <tr>
+                                <th width="200">Class</th>
+                                <td id="class">4th</td>
+                                <th width="200">Roll Number</th>
+                                <td id="roll">123200904016</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <table width="100%">
+                <tr>
+                    <th colspan="3">Subjects</th>
+                    <th>Full Marks</th>
+                    <th colspan="2">Obatin Marks</th>
+                </tr>
+
+                <!-- <tr align="center">
+                    <td colspan="3">English</td>
+                    <td>100</td>
+                    <td colspan="2">85</td>
+                </tr> -->
+
+                <tbody id="subject-body">
+
+                </tbody>
+
+                <tr>
+                    <th colspan="5" align="right">Total Marks</th>
+                    <td align="center" id="total-marks">0</td>
+                </tr>
+
+                <tr>
+                    <th colspan="2" align="right">Grade</th>
+                    <td align="center" id="grade"></td>
+                    <th colspan="2" align="right">Percentage</th>
+                    <td align="center" id="percentage">0%</td>
+                </tr>
+            </table>
+
+            <!-- <table id="" width="100%">
+                <tr>
+                    <th colspan="3"align="right">Total Marks&nbsp;</th>
+                    <td >&nbsp;787</td>
+                </tr>
+                    
+                <tr>
+                    <th width="100" align="right">Grade&nbsp;</th>
+                    <td>&nbsp;A+</td>
+                    <th align="right" width="150">Percentage&nbsp;</th>
+                    <td width="100">&nbsp;87%</td>
+                </tr>
+            </table> -->
+        
+            <div id="subject-list">
+
+            </div>
+            <p id="copyright">
+                <i class="fa fa-copyright"></i> Manjit Singh | This App is only for laerning purpose
+            </p>
+
+            <small id="warning">Commercial Or Illigal Porpose is Prohibited | All Right Reserved</small>
+        </div>
+
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="JS/index.js"></script>
+</body>
+</html>
